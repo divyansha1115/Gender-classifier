@@ -24,21 +24,27 @@ clf_perceptron.fit(X, Y)
 clf_KNN.fit(X, Y)
 
 # Testing using the same data
-pred_tree = clf_tree.predict(X)
-acc_tree = accuracy_score(Y, pred_tree) * 100
-print('Accuracy for DecisionTree: {}'.format(acc_tree))
+
+pred_KNN = clf_KNN.predict(X)
+acc_KNN = accuracy_score(Y, pred_KNN) * 100
+print('Accuracy for KNN: {}'.format(acc_KNN))
+
 
 pred_svm = clf_svm.predict(X)
 acc_svm = accuracy_score(Y, pred_svm) * 100
 print('Accuracy for SVM: {}'.format(acc_svm))
 
+
+pred_tree = clf_tree.predict(X)
+acc_tree = accuracy_score(Y, pred_tree) * 100
+print('Accuracy for DecisionTree: {}'.format(acc_tree))
+
+
 pred_per = clf_perceptron.predict(X)
 acc_per = accuracy_score(Y, pred_per) * 100
 print('Accuracy for perceptron: {}'.format(acc_per))
 
-pred_KNN = clf_KNN.predict(X)
-acc_KNN = accuracy_score(Y, pred_KNN) * 100
-print('Accuracy for KNN: {}'.format(acc_KNN))
+
 
 # The best classifier from svm, per, KNN
 index = np.argmax([acc_svm, acc_per, acc_KNN])
